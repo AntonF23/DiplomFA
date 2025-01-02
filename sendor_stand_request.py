@@ -14,17 +14,5 @@ def get_order(track_number):
     response = requests.get(get_order_url)
     return response
 
-#Автотест
-def test_order_creation_and_number():
-    response = create_order(data.order_body)
 
-    track_number = response.json()["track"]
-    print("Номер трека Вашего заказа:", track_number)
 
-# Получение данных заказа по треку
-    order_response = get_order(track_number)
-
-    assert order_response.status_code == 200, "Ошибка: {order_response.status_code}"
-    order_data = order_response.json()
-    print("Данные заказа:")
-    print(order_data)
